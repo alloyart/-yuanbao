@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#31c463" />
+  <meta name="description" content="腾讯元宝「成长中心」界面改版设计方案｜产品思考、用户调研、竞品研究、设计策略与 AI 辅助工作流。" />
+  <title>腾讯元宝「成长中心」界面改版设计方案</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <section class="slide slide-image" aria-label="封面">
+      <img src="assets/01-cover.png" alt="腾讯元宝成长中心界面改版设计方案封面" width="2048" height="1152" fetchpriority="high" />
+    </section>
+
+    <section class="motion-showcase" aria-label="交互动效展示">
+      <div class="motion-heading">
+        <span class="eyebrow">INTERACTION PREVIEW</span>
+        <h1>核心交互动效</h1>
+        <p>两段交互演示自动静音循环播放</p>
+      </div>
+      <div class="video-grid">
+        <figure class="video-card">
+          <div class="video-shell">
+            <video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="成长中心主界面动效演示">
+              <source src="assets/demo-01.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </figure>
+        <figure class="video-card">
+          <div class="video-shell">
+            <video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="成长中心任务交互动效演示">
+              <source src="assets/demo-02.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide slide-image"><img src="assets/02-project-overview.png" alt="产品思考：如何理解元宝的成长中心" width="2048" height="1152" loading="lazy" decoding="async" /></section>
+    <section class="slide slide-image"><img src="assets/03-user-research.png" alt="用户提问与用户调研" width="2048" height="1152" loading="lazy" decoding="async" /></section>
+    <section class="slide slide-image"><img src="assets/04-design-research.png" alt="竞品调研与设计研究" width="2048" height="1152" loading="lazy" decoding="async" /></section>
+    <section class="slide slide-image"><img src="assets/05-design-objectives.png" alt="设计目标" width="2048" height="1152" loading="lazy" decoding="async" /></section>
+    <section class="slide slide-image"><img src="assets/06-strategy-start.png" alt="设计策略：让用户更轻松地开始" width="2048" height="1152" loading="lazy" decoding="async" /></section>
+    <section class="slide slide-image"><img src="assets/07-strategy-growth.png" alt="设计策略：让用户随时感受自己的成长" width="2048" height="1152" loading="lazy" decoding="async" /></section>
+    <section class="slide slide-image"><img src="assets/08-strategy-retention.png" alt="设计策略：让用户愿意持续参与" width="2048" height="1152" loading="lazy" decoding="async" /></section>
+    <section class="slide slide-image"><img src="assets/09-ai-workflow.png" alt="AI 参与设计与协作的工作流" width="2048" height="1152" loading="lazy" decoding="async" /></section>
+  </main>
+
+  <script>
+    const videos = document.querySelectorAll('video');
+    const playAll = () => videos.forEach((video) => {
+      video.muted = true;
+      const promise = video.play();
+      if (promise && typeof promise.catch === 'function') promise.catch(() => {});
+    });
+    window.addEventListener('load', playAll, { once: true });
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) playAll();
+    });
+  </script>
+</body>
+</html>
